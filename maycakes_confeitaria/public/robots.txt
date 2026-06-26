@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maycakes.com.br/sitemap.xml

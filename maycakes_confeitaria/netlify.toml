@@ -1,0 +1,8 @@
+# TanStack Start (Vite) — https://docs.netlify.com/build/frameworks/framework-setup-guides/tanstack-start/
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  # @tanstack/react-start exige Node recente no build
+  NODE_VERSION = "22"
