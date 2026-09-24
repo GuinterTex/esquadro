@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-fundo: #0d2a4a;
+  --color-giz: #f2f4f6;
+  --color-mudo: #c5cdd6;
+  --color-filete: rgb(255 255 255 / 25%);
+  --color-regua: rgb(255 255 255 / 30%);
+  --color-branco: #ffffff;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  background: var(--color-fundo);
+  color: var(--color-giz);
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-fundo);
+  color: var(--color-giz);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  font-weight: 500;
+  line-height: 1.15;
+  scroll-margin-top: 5.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-giz);
+  outline-offset: 3px;
+}
+
+.skip:focus-visible,
+header nav a:focus-visible,
+header button:focus-visible {
+  outline: 2px solid var(--color-giz);
+  outline-offset: 2px;
+}
+
+header nav a {
+  text-decoration-line: none;
+  text-underline-offset: 0.25rem;
+  transition: opacity 150ms linear;
+}
+
+header nav a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  opacity: 0.75;
+}
+
+header nav a.is-active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  opacity: 1;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 40;
+  background: var(--color-giz);
+  color: var(--color-fundo);
+  padding: 0.5rem 1rem;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+/* Exceção única de cor. Só no herói, atrás do símbolo. Não é token. */
+.hero {
+  background-color: #0d2a4a;
+  background-image: radial-gradient(ellipse at 50% 42%, #1a2436 0%, #0d2a4a 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
