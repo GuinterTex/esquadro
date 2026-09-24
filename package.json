@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",
-    "preview": "vite preview",
-    "verificar": "node scripts/verificar.mjs"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.2.5",
