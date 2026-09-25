@@ -1,23 +1,41 @@
 const ALT_HEROI =
-  "Cinco placas isométricas empilhadas em linha branca, símbolo do Esquadro.";
+  "Cinco placas de acrílico fosco empilhadas, símbolo do Esquadro.";
 
-// Asset esperado em public/assets/simbolo.svg.
-// O mesmo vetor serve o herói, o topo e o favicon. A foto da maquete não entra aqui.
+// Foto da maquete, 1024×1363, fundo transparente. Só no herói: no topo de 44px ela perde o detalhe.
+const MAQUETE_HEROI = "/assets/maquete-heroi.png";
+
+// Asset esperado em public/assets/simbolo.svg. Serve o topo e o favicon.
 const SRC = "/assets/simbolo.svg";
 
 export function Symbol({ variant = "hero" }) {
   const hero = variant === "hero";
-  const height = hero ? 220 : 44;
+
+  if (hero) {
+    return (
+      <span className="hidden w-full md:block" data-asset-slot="simbolo-heroi">
+        <picture>
+          <source media="(min-width: 768px)" srcSet={MAQUETE_HEROI} />
+          <img
+            alt={ALT_HEROI}
+            width={1024}
+            height={1363}
+            decoding="async"
+            fetchPriority="high"
+            className="h-auto w-full object-contain"
+          />
+        </picture>
+      </span>
+    );
+  }
+
+  const height = 44;
   const width = Math.round(height * (184 / 294));
 
   if (!__SIMBOLO_PRONTO__) {
     return (
       <span
-        className={hero ? "inline-flex shrink-0" : "hidden"}
-        style={hero ? { width, height } : undefined}
-        data-asset-slot={hero ? "simbolo-heroi" : "simbolo-topo"}
-        role={hero ? "img" : undefined}
-        aria-label={hero ? ALT_HEROI : undefined}
+        className="hidden"
+        data-asset-slot="simbolo-topo"
       />
     );
   }

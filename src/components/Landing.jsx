@@ -76,7 +76,7 @@ export function Landing() {
                 </a>
               </p>
             </div>
-            <div className="md:col-span-5 md:justify-self-end">
+            <div className="hidden md:col-span-5 md:block md:justify-self-end">
               <Symbol variant="hero" />
             </div>
           </div>
