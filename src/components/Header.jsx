@@ -7,6 +7,7 @@ const idsNav = nav.map((item) => item.href.slice(1));
 export function Header() {
   const [aberto, setAberto] = useState(false);
   const [ativa, setAtiva] = useState("");
+  const [rolou, setRolou] = useState(false);
 
   useEffect(() => {
     const pares = idsNav
@@ -40,6 +41,19 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    let marcado = window.scrollY > 8;
+    setRolou(marcado);
+    function aoRolar() {
+      const proximo = window.scrollY > 8;
+      if (proximo === marcado) return;
+      marcado = proximo;
+      setRolou(proximo);
+    }
+    window.addEventListener("scroll", aoRolar, { passive: true });
+    return () => window.removeEventListener("scroll", aoRolar);
+  }, []);
+
+  useEffect(() => {
     if (!aberto) return undefined;
     function fechar(event) {
       if (event.key === "Escape") setAberto(false);
@@ -49,7 +63,7 @@ export function Header() {
   }, [aberto]);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-filete bg-fundo">
+    <header className={`topo sticky top-0 z-30 ${rolou ? "is-scrolled" : ""}`}>
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-x-3 px-5 py-4 md:flex-nowrap md:px-8">
         <div className="flex items-center gap-3">
           <Symbol variant="topo" />

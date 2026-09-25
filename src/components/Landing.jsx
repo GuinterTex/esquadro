@@ -3,6 +3,7 @@ import { Header } from "./Header.jsx";
 import { Footer } from "./Footer.jsx";
 import { Compra } from "./Compra.jsx";
 import { Faq } from "./Faq.jsx";
+import { ImagemAutor } from "./ImagemAutor.jsx";
 import { Section } from "../primitives/Section.jsx";
 import { Regua } from "../primitives/Rules.jsx";
 import { Symbol } from "../primitives/Symbol.jsx";
@@ -167,7 +168,8 @@ export function Landing() {
 
         <Section space="medio">
           <H2 id="autor" tabIndex={-1}>{autor.titulo}</H2>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col items-start gap-6 md:flex-row">
+            <ImagemAutor />
             <Corpo>{autor.linha}</Corpo>
           </div>
           {/* Espaço para depoimento real futuro. Não publicar prova social, número de aluno, selo, estrela nem escassez até existir depoimento verificável. */}

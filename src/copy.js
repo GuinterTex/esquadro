@@ -6,7 +6,7 @@ export const cena =
   "Na reunião, o fornecedor junta quatro termos numa frase só e mostra o slide.";
 
 export const apoio =
-  "Trilha escrita de arquitetura de sistemas de IA, para ler o sistema inteiro e julgar o que o slide esconde.";
+  "Trilha escrita para avaliação de sistemas de IA, para você ler e avaliar o sistema inteiro e julgar o que o slide esconde.";
 
 export const cta = "Comprar a trilha";
 

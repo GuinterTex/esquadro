@@ -2,6 +2,7 @@
 // COLOCAR_PRECO não é emitido. A URL da landing continua placeholder até você trocar.
 
 export const LINK_HOTMART = "https://go.hotmart.com/B107584219H?dp=1";
+export const LINKEDIN = "https://www.linkedin.com/in/flavionpaz/";
 export const URL_DA_LANDING = "COLOCAR_URL_DA_LANDING";
 
 export const UTM = "utm_source=esquadro&utm_medium=landing&utm_campaign=trilha";
@@ -9,7 +10,7 @@ export const UTM = "utm_source=esquadro&utm_medium=landing&utm_campaign=trilha";
 export const seo = {
   title: "Esquadro. Do dado à resposta.",
   description:
-    "Trilha escrita de arquitetura de sistemas de IA, para ler o sistema inteiro e julgar o que o slide esconde.",
+    "Trilha escrita para avaliação de sistemas de IA, para você ler e avaliar o sistema inteiro e julgar o que o slide esconde.",
   ogAlt: "Maquete das cinco placas do Esquadro sobre fundo navy.",
 };
 

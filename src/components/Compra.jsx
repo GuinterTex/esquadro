@@ -4,11 +4,11 @@ import { cta, reassurance } from "../copy.js";
 
 export function Compra() {
   return (
-    <div className="mt-8">
+    <div className="mt-12">
       <Button href={hrefCompra()} compra>
         {cta}
       </Button>
-      <p className="mt-3 max-w-md text-sm leading-relaxed text-mudo">{reassurance}</p>
+      <p className="mt-5 max-w-md text-sm leading-relaxed text-mudo">{reassurance}</p>
     </div>
   );
 }

@@ -4,7 +4,7 @@ export function Button({ href, children, compra = false }) {
       href={href}
       target="_self"
       data-cta={compra ? "compra" : undefined}
-      className="inline-flex min-h-12 w-full items-center justify-center bg-giz px-6 text-base font-medium text-fundo hover:bg-branco sm:w-auto sm:min-w-64"
+      className="cta inline-flex min-h-14 w-full items-center justify-center overflow-hidden bg-giz px-8 text-base font-semibold text-fundo hover:bg-branco sm:w-auto sm:min-w-72"
     >
       {children}
     </a>

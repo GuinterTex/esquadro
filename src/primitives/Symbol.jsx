@@ -4,8 +4,7 @@ const ALT_HEROI =
 // Foto da maquete, 1024×1363, fundo transparente. Só no herói: no topo de 44px ela perde o detalhe.
 const MAQUETE_HEROI = "/assets/maquete-heroi.png";
 
-// Asset esperado em public/assets/simbolo.svg. Serve o topo e o favicon.
-const SRC = "/assets/simbolo.svg";
+const MARCA = "/assets/simbolo.svg";
 
 export function Symbol({ variant = "hero" }) {
   const hero = variant === "hero";
@@ -28,32 +27,18 @@ export function Symbol({ variant = "hero" }) {
     );
   }
 
-  const height = 44;
-  const width = Math.round(height * (184 / 294));
-
-  if (!__SIMBOLO_PRONTO__) {
-    return (
-      <span
-        className="hidden"
-        data-asset-slot="simbolo-topo"
-      />
-    );
-  }
-
   return (
     <span
-      className="inline-flex shrink-0 items-center justify-center"
-      style={{ width, height }}
-      data-asset-slot={hero ? "simbolo-heroi" : "simbolo-topo"}
+      className="inline-flex h-8 w-8 shrink-0 items-center justify-center"
+      data-asset-slot="simbolo-topo"
     >
       <img
-        src={SRC}
-        alt={hero ? ALT_HEROI : ""}
-        width={width}
-        height={height}
+        src={MARCA}
+        alt=""
+        width={32}
+        height={32}
         decoding="async"
-        fetchPriority={hero ? "high" : "low"}
-        className="h-full w-full object-contain"
+        className="h-8 w-8 object-contain"
       />
     </span>
   );
