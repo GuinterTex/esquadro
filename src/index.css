@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-fundo: #0d2a4a;
+  --color-giz: #f2f4f6;
+  --color-mudo: #c5cdd6;
+  --color-filete: rgb(255 255 255 / 25%);
+  --color-regua: rgb(255 255 255 / 30%);
+  --color-branco: #ffffff;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  background: var(--color-fundo);
+  color: var(--color-giz);
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-fundo);
+  color: var(--color-giz);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  font-weight: 500;
+  line-height: 1.15;
+  scroll-margin-top: 5.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-giz);
+  outline-offset: 3px;
+}
+
+.skip:focus-visible,
+header nav a:focus-visible,
+header button:focus-visible {
+  outline: 2px solid var(--color-giz);
+  outline-offset: 2px;
+}
+
+.topo {
+  border-bottom: 1px solid transparent;
+  background-color: var(--color-fundo);
+}
+
+.topo.is-scrolled {
+  border-bottom-color: rgb(255 255 255 / 18%);
+  background-color: color-mix(in srgb, var(--color-fundo) 96%, black);
+}
+
+header nav a {
+  text-decoration-line: none;
+  text-underline-offset: 0.25rem;
+  transition: opacity 150ms linear;
+}
+
+header nav a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  opacity: 0.75;
+}
+
+header nav a.is-active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  opacity: 1;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 40;
+  background: var(--color-giz);
+  color: var(--color-fundo);
+  padding: 0.5rem 1rem;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.cta {
+  border: 1px solid color-mix(in srgb, var(--color-giz) 70%, var(--color-fundo));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--color-giz) 35%, transparent),
+    0 6px 14px rgb(3 10 20 / 0.55);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-giz);
+  outline-offset: 3px;
+}
+
+/* --forma-imagem define o canto da moldura.
+   Canto suave, o padrão: 10px.
+   Círculo: 50%.
+   Oval: 50% 40%. */
+.imagem-autor {
+  --forma-imagem: 10px;
+  position: relative;
+  flex: 0 0 auto;
+  width: 9.5rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgb(242 244 246 / 25%);
+  border-radius: var(--forma-imagem);
+  background: color-mix(in srgb, var(--color-fundo) 78%, white);
+}
+
+.imagem-autor-miolo {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  border-radius: inherit;
+}
+
+.imagem-autor-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagem-autor-foto-oculta {
+  visibility: hidden;
+}
+
+.imagem-autor-marca {
+  position: absolute;
+  inset: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: auto;
+  opacity: 0.35;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta {
+    position: relative;
+  }
+
+  .cta::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    bottom: -30%;
+    left: 0;
+    width: 38%;
+    background: linear-gradient(105deg, transparent, rgb(255 255 255 / 0.7), transparent);
+    transform: translateX(-180%) skewX(-18deg);
+    pointer-events: none;
+  }
+
+  .cta:hover::after {
+    animation: cta-brilho 600ms linear 1;
+  }
+}
+
+@keyframes cta-brilho {
+  to {
+    transform: translateX(430%) skewX(-18deg);
+  }
+}
+
+.hero {
+  background-color: #0d2a4a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
